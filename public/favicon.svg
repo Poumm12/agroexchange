@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#FFFFFF"/>
+  <defs>
+    <linearGradient id="ring" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1B5E20"/><stop offset="1" stop-color="#7CB342"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="20" y1="18" x2="34" y2="46" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#43A047"/><stop offset="1" stop-color="#1B5E20"/>
+    </linearGradient>
+    <linearGradient id="wheat" x1="38" y1="18" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D4A017"/><stop offset="1" stop-color="#B8860B"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 6 A26 26 0 1 1 16 12" stroke="url(#ring)" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M16 44 Q32 36 48 44" stroke="#2E7D32" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+  <path d="M18 48 Q32 41 46 48" stroke="#43A047" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M30 40 C20 38 19 26 27 20 C31 28 33 33 30 40 Z" fill="url(#leaf)"/>
+  <line x1="40" y1="40" x2="40" y2="22" stroke="url(#wheat)" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M40 22 q-4 -1.5 -5 -4 M40 22 q4 -1.5 5 -4 M40 26 q-4 -1.5 -5 -4 M40 26 q4 -1.5 5 -4 M40 30 q-4 -1.5 -5 -4 M40 30 q4 -1.5 5 -4 M40 34 q-4 -1.5 -5 -4 M40 34 q4 -1.5 5 -4" stroke="url(#wheat)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <circle cx="40" cy="19" r="1.6" fill="#D4A017"/>
+</svg>

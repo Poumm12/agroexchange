@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply text-gray-900 antialiased;
+    background-color: #F6F7F8;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    /* Prevent horizontal overflow on mobile */
+    overflow-x: hidden;
+  }
+  * { box-sizing: border-box; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { @apply bg-gray-100; }
+  ::-webkit-scrollbar-thumb { @apply bg-agro-200 rounded-full; }
+
+  /* Remove tap highlight on mobile */
+  button, a { -webkit-tap-highlight-color: transparent; }
+
+  /* Improve touch target size on mobile */
+  button { min-height: 36px; }
+}
+
+@layer utilities {
+  .font-display { font-family: 'Manrope', system-ui, sans-serif; }
+
+  /* Animations */
+  .flash { animation: flash 0.4s ease; }
+  @keyframes flash { 0% { opacity: 0.35; } 100% { opacity: 1; } }
+
+  .fade-up { animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  .live-dot { animation: livePulse 2s infinite; }
+  @keyframes livePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+
+  /* Dropdown opening — subtle, professional */
+  .dropdown-enter { animation: dropdownIn 0.18s cubic-bezier(0.22, 1, 0.36, 1) both; transform-origin: top; }
+  @keyframes dropdownIn {
+    from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* Leaflet popup polish */
+  .agro-popup .leaflet-popup-content-wrapper {
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15), 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #f0f0f0;
+  }
+  .agro-popup .leaflet-popup-content { margin: 11px 13px; }
+  .agro-popup .leaflet-popup-tip { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+
+  /* Text clamp */
+  .line-clamp-1 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; }
+  .line-clamp-2 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .line-clamp-3 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+
+  /* Mobile-safe table wrapper */
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* Safe area insets for notched phones */
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+  /* Focus visible for accessibility */
+  .focus-ring:focus-visible {
+    outline: 2px solid #2E7D32;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* Dashboard nav horizontal scroll hide scrollbar but keep scroll */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #C8E6C9 transparent;
+}
+.scrollbar-thin::-webkit-scrollbar { height: 3px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: #C8E6C9; border-radius: 3px; }
+
+/* Prose styles for static pages */
+.prose p { @apply text-gray-600 leading-relaxed mb-4; }
+.prose h2 { @apply font-display font-bold text-gray-900 text-xl mt-8 mb-4; }
+.prose h3 { @apply font-display font-semibold text-gray-800 text-base mt-6 mb-2; }
+.prose ul { @apply space-y-2 text-gray-600; }
+.prose li { @apply flex items-start gap-2; }
+
+/* Mobile: prevent table overflow in Market tab */
+@media (max-width: 640px) {
+  table { font-size: 12px; }
+  table th, table td { padding: 8px 10px !important; }
+}
+
+/* Ensure modals are scrollable on small phones */
+@media (max-height: 700px) {
+  [role="dialog"] > div {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
