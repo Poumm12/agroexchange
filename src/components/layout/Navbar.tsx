@@ -12,8 +12,8 @@ import { FlagGR, FlagGB } from '@/components/ui/Flags'
 import toast from 'react-hot-toast'
 
 interface NavbarProps {
-  view: string
-  setView: (v: string) => void
+  view: 'landing' | 'dashboard'
+  setView: React.Dispatch<React.SetStateAction<'landing' | 'dashboard'>>
   navigateTo: (tab: string) => void
 }
 

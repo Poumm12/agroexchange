@@ -112,6 +112,7 @@ export interface Transporter {
   total_trips: number
   description?: string
   created_at: string
+  updated_at?: string
   user?: User
   reviews?: Review[]
 }
